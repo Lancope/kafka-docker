@@ -1,22 +1,19 @@
 kafka-docker
 ============
 
-Dockerfile for [Apache Kafka](http://kafka.apache.org/)
-
-The image is available directly from https://index.docker.io
-
 ##Quickstart
 
+The following will deploy a single broker; this will potentially deploy a zookeeper container, listening on port `2181`, if none yet exists.
+This may be run multiple times to deploy multiple brokers, just change `BROKER_ID`.
+
+```bash
+
+## BROKER_ID - arbitrary int identifying broker.
+## PORT - port HOST OS should assign to broker.
+## HOST_IP - IP of HOST OS that broker will register with zookeeper.
+./start-broker.sh [BROKER_ID] [PORT] [HOST_IP];
+
 ```
-export START_SCRIPT=https://raw2.github.com/wurstmeister/kafka-docker/master/start-broker.sh
-curl -Ls $START_SCRIPT | bash /dev/stdin 1 9092 <your-host-ip>
-```
-
-Note: Do not use localhost or 127.0.0.1 as the host ip if you want to run multiple brokers. 
-
-##Tutorial
-
-[http://wurstmeister.github.io/kafka-docker/](http://wurstmeister.github.io/kafka-docker/)
 
 
 
